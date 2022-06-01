@@ -725,7 +725,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
         <div id="full" class='cover-wrapper post dock' style="display: none;">
           
-            <div id='cover-backstretch'></div>
+            <div class='cover-bg lazyload placeholder' data-bg="https://blog-source-1308343651.cos.ap-chengdu.myqcloud.com/themes/wallpaper/w003.jpg"></div>
           
           <div class='cover-body'>
   <div class='top'>
@@ -979,14 +979,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/20200825/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE%E6%80%8E%E4%B9%88%E5%8A%9E/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>常用网站拒绝访问(-102)怎么办</p>
+      
+        <a class='next' href='/20200825/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE%E6%80%8E%E4%B9%88%E5%8A%9E/'>
+          <p class='title'>常用网站拒绝访问(-102)怎么办<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>　　访问某一个网站，无论是用手机还是电脑 均无法访问此网站，其他网站没有问题，但是在另外的地方却能访问此网站，这是什么原因勒？
 
 
 一、问题分析：　　通过上述问题，我们客户端没有问题，最终问题应...</p>
         </a>
-      
       
     </div>
   
@@ -1313,41 +1313,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 <!-- internal -->
-
-  
-  
-  
-    
-<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
-
-    <script type="text/javascript">
-        var imgs=["https://blog-source-1308343651.cos.ap-chengdu.myqcloud.com/themes/wallpaper/w003.jpg", "https://blog-source-1308343651.cos.ap-chengdu.myqcloud.com/themes/wallpaper/w001.jpg", "https://blog-source-1308343651.cos.ap-chengdu.myqcloud.com/themes/wallpaper/w002.jpg"];
-        if ('true' == 'true') {
-          function shuffle(arr){
-            /*From countercurrent-time*/
-            var n = arr.length;
-            while(n--) {
-              var index = Math.floor(Math.random() * n);
-              var temp = arr[index];
-              arr[index] = arr[n];
-              arr[n] = temp;
-            }
-          }
-          shuffle(imgs);
-        }
-	  function Pjax_backstretch(){
-        
-          $('#cover-backstretch').backstretch(
-            imgs,
-          {
-            duration: "10000",
-            fade: "1500"
-          });
-        
-	  }
-	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
-    </script>
-  
 
 
 
