@@ -2780,6 +2780,35 @@ img.lazyload:not(.placeholder).loaded {
   flex-direction: column;
   align-items: stretch;
 }
+.widget.blogger .content .scale_30 {
+  width: 30%;
+  height: 30%;
+}
+.widget.blogger .content .scale_40 {
+  width: 40%;
+  height: 40%;
+}
+.widget.blogger .content .scale_50 {
+  width: 50%;
+  height: 50%;
+}
+.widget.blogger .content .scale_60 {
+  width: 60%;
+  height: 60%;
+}
+.widget.blogger .content .scale_70 {
+  width: 70%;
+  height: 70%;
+  text-align: center;
+}
+.widget.blogger .content .scale_80 {
+  width: 80%;
+  height: 80%;
+}
+.widget.blogger .content .scale_90 {
+  width: 90%;
+  height: 90%;
+}
 .widget.blogger .content >.avatar {
   align-self: center;
   overflow: hidden;
