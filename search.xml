@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>脚本应用那些事儿</title>
-      <link href="20200825/%E8%84%9A%E6%9C%AC%E7%9A%84%E5%BA%94%E7%94%A8/"/>
-      <url>20200825/%E8%84%9A%E6%9C%AC%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+      <title>常用网站拒绝访问(-102)怎么办</title>
+      <link href="20200825/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE%E6%80%8E%E4%B9%88%E5%8A%9E/"/>
+      <url>20200825/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE%E6%80%8E%E4%B9%88%E5%8A%9E/</url>
       
-        <content type="html"><![CDATA[<p>   是否想看VIP视频无广告？<br>   是否很讨厌在某些网站不能复制文本和图片？<br>   是否想直接下载收费文档？<br>   通过浏览器插件，装上脚本这一切都是小意思。</p><span id="more"></span><div class="story post-story"><h2 id="一、认知篇"><a href="#一、认知篇" class="headerlink" title="一、认知篇"></a>一、认知篇</h2><p>&emsp;&emsp;  简单来讲，你只需要你的浏览器装上油猴或者暴力猴插件，然后给插件安装上相应功能的N个脚本，就可以实现以上所有功能了。<br>1.关于浏览器及其插件系统<br>&emsp;&emsp; 浏览器的主要功能是将用户选择的web资源呈现出来，它需要从服务器请求资源，并将其显示在浏览器窗口中。要想浏览收费资源，首先得绕开本地权限限制直接从服务器请求资源。简单的可以直接F12进入开发者模式寻找资源，更多的时候则需要利用插件注入JS脚本才能拿到服务器资源。<br>&emsp;&emsp; 比如chrome浏览器，提供了很多api给插件系统，当你开发一个插件，就可以利用浏览器提供的api，获取到浏览的任何网页的信息，并对其dom进行任意操作，当然也就包括插入js脚本。</p><p>2.关于游览器插件<br>&emsp;&emsp; 一般常用的有暴力猴和Tampermonkey（油猴）两款插件，油猴用得人多，功能更加丰富，暴力猴更加精简。总体来说功能都一样，没什么区别，区别在于有些浏览器不兼容油猴，所以才出现了暴力猴，解决兼容性问题。<br>&emsp;&emsp; 不管哪个猴，都不关键，关键是猴子穿没穿脚本，没穿，毛用没有！</p><p>3.选择什么浏览器<br>&emsp;&emsp; 当然是谷歌浏览器，插件丰富。当然也可以选择 Microsoft Edge，其采用的谷歌内核，与谷歌浏览器差距不算大。其他的火狐浏览器也是可以的。   </p></div><div class="story post-story"><h2 id="二、步骤篇"><a href="#二、步骤篇" class="headerlink" title="二、步骤篇"></a>二、步骤篇</h2><p>以谷歌浏览器为例   </p></div>]]></content>
+        <content type="html"><![CDATA[<p>　　访问某一个网站，无论是用手机还是电脑 均无法访问此网站，其他网站没有问题，但是在另外的地方却能访问此网站，这是什么原因勒？</p><span id="more"></span><div class="story post-story"><h2 id="一、问题分析："><a href="#一、问题分析：" class="headerlink" title="一、问题分析："></a>一、问题分析：</h2><p>　　通过上述问题，我们客户端没有问题，最终问题应该是在客户端访问DNS服务器时，DNS解析出错，即你访问其他网站时，DNS给出了正确的IP地址，当访问此网站时，返回的ip地址错误，即会出现这种状况。<br>　　那为什么其他地方能访问，这块区域不能访问？这是因为大多数时候我们的网络设置为自动选择DNS服务器，在不同的位置，其局域网不一样，IP地址不一样，自动选择DNS服务器不一样。<br>可把问题定位为DNS服务器出错，可理解为DNS劫持。</p></div><div class="story post-story"><h2 id="二、问题解决："><a href="#二、问题解决：" class="headerlink" title="二、问题解决："></a>二、问题解决：</h2><p>1.打开此网站：<a href="https://github.com.ipaddress.com/">ipaddress</a>，输入目标网站域名，即可得到网站的ip地址。<br>2.win+R，输入cmd 打开命令行工具。<br>3.输入ping 域名  如：ping <a href="http://www.zhihu.com/">www.zhihu.com</a> 。便可看到成功ping通或不通的结果。如果ping通，则说明目标主机服务器没有问题。<br>4.输入ping IP地址  如：ping 23.248.167.11 。便可看到成功ping通或不通的结果。如果ping不通，则说明DNS服务器有问题。<br>5.更改DNS服务器地址：进入本地网络属性,具体百度。如果更改后不行，请多尝试另外的DNS地址。常见的有8.8.8.8 ；114.114.114.144等。<br>6.刷新DNS：打开cmd，敲入命令，刷新DNS解析缓存：ipconfig/flushdns<br>7.最后输入ipconfig/all以查看DNS服务器地址</p></div>]]></content>
       
       
       <categories>
@@ -29,11 +29,11 @@
     
     
     <entry>
-      <title>常用网站拒绝访问(-102)怎么办</title>
-      <link href="20200825/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE%E6%80%8E%E4%B9%88%E5%8A%9E/"/>
-      <url>20200825/%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E6%8B%92%E7%BB%9D%E8%AE%BF%E9%97%AE%E6%80%8E%E4%B9%88%E5%8A%9E/</url>
+      <title>脚本应用那些事儿</title>
+      <link href="20200825/%E8%84%9A%E6%9C%AC%E7%9A%84%E5%BA%94%E7%94%A8/"/>
+      <url>20200825/%E8%84%9A%E6%9C%AC%E7%9A%84%E5%BA%94%E7%94%A8/</url>
       
-        <content type="html"><![CDATA[<p>　　访问某一个网站，无论是用手机还是电脑 均无法访问此网站，其他网站没有问题，但是在另外的地方却能访问此网站，这是什么原因勒？</p><span id="more"></span><div class="story post-story"><h2 id="一、问题分析："><a href="#一、问题分析：" class="headerlink" title="一、问题分析："></a>一、问题分析：</h2><p>　　通过上述问题，我们客户端没有问题，最终问题应该是在客户端访问DNS服务器时，DNS解析出错，即你访问其他网站时，DNS给出了正确的IP地址，当访问此网站时，返回的ip地址错误，即会出现这种状况。<br>　　那为什么其他地方能访问，这块区域不能访问？这是因为大多数时候我们的网络设置为自动选择DNS服务器，在不同的位置，其局域网不一样，IP地址不一样，自动选择DNS服务器不一样。<br>可把问题定位为DNS服务器出错，可理解为DNS劫持。</p></div><div class="story post-story"><h2 id="二、问题解决："><a href="#二、问题解决：" class="headerlink" title="二、问题解决："></a>二、问题解决：</h2><p>1.打开此网站：<a href="https://github.com.ipaddress.com/">ipaddress</a>，输入目标网站域名，即可得到网站的ip地址。<br>2.win+R，输入cmd 打开命令行工具。<br>3.输入ping 域名  如：ping <a href="http://www.zhihu.com/">www.zhihu.com</a> 。便可看到成功ping通或不通的结果。如果ping通，则说明目标主机服务器没有问题。<br>4.输入ping IP地址  如：ping 23.248.167.11 。便可看到成功ping通或不通的结果。如果ping不通，则说明DNS服务器有问题。<br>5.更改DNS服务器地址：进入本地网络属性,具体百度。如果更改后不行，请多尝试另外的DNS地址。常见的有8.8.8.8 ；114.114.114.144等。<br>6.刷新DNS：打开cmd，敲入命令，刷新DNS解析缓存：ipconfig/flushdns<br>7.最后输入ipconfig/all以查看DNS服务器地址</p></div>]]></content>
+        <content type="html"><![CDATA[<p>   是否想看VIP视频无广告？<br>   是否很讨厌在某些网站不能复制文本和图片？<br>   是否想直接下载收费文档？<br>   通过浏览器插件，装上脚本这一切都是小意思。</p><span id="more"></span><div class="story post-story"><h2 id="一、认知篇"><a href="#一、认知篇" class="headerlink" title="一、认知篇"></a>一、认知篇</h2><p>&emsp;&emsp;  简单来讲，你只需要你的浏览器装上油猴或者暴力猴插件，然后给插件安装上相应功能的N个脚本，就可以实现以上所有功能了。<br>1.关于浏览器及其插件系统<br>&emsp;&emsp; 浏览器的主要功能是将用户选择的web资源呈现出来，它需要从服务器请求资源，并将其显示在浏览器窗口中。要想浏览收费资源，首先得绕开本地权限限制直接从服务器请求资源。简单的可以直接F12进入开发者模式寻找资源，更多的时候则需要利用插件注入JS脚本才能拿到服务器资源。<br>&emsp;&emsp; 比如chrome浏览器，提供了很多api给插件系统，当你开发一个插件，就可以利用浏览器提供的api，获取到浏览的任何网页的信息，并对其dom进行任意操作，当然也就包括插入js脚本。</p><p>2.关于游览器插件<br>&emsp;&emsp; 一般常用的有暴力猴和Tampermonkey（油猴）两款插件，油猴用得人多，功能更加丰富，暴力猴更加精简。总体来说功能都一样，没什么区别，区别在于有些浏览器不兼容油猴，所以才出现了暴力猴，解决兼容性问题。<br>&emsp;&emsp; 不管哪个猴，都不关键，关键是猴子穿没穿脚本，没穿，毛用没有！</p><p>3.选择什么浏览器<br>&emsp;&emsp; 当然是谷歌浏览器，插件丰富。当然也可以选择 Microsoft Edge，其采用的谷歌内核，与谷歌浏览器差距不算大。其他的火狐浏览器也是可以的。   </p></div><div class="story post-story"><h2 id="二、步骤篇"><a href="#二、步骤篇" class="headerlink" title="二、步骤篇"></a>二、步骤篇</h2><p>以谷歌浏览器为例   </p></div>]]></content>
       
       
       <categories>
