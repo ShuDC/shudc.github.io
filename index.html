@@ -25,7 +25,7 @@
   
   <!-- Custom Files headBegin end-->
     <link rel="shortcut icon" type='image/x-icon' href="https://source.shudc.top/themes/mylcon/hacker001.png">
-  <link rel="preload" href="/css/style.7f6f906d.css" as="style">
+  <link rel="preload" href="/css/style.9bf3dfbb.css" as="style">
   <link rel="preload" href="https://source.shudc.top/themes/fonts/Aa做不到人人喜欢.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://source.shudc.top/themes/fonts/仓耳舒圆体W02.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
@@ -216,6 +216,14 @@ button {
     background: rgba(255,255,255,0.9) !important;
     backdrop-filter: saturate(200%) blur(20px);
   }
+}
+@supports (backdrop-filter: blur(20px)) {
+  .blur#comments {
+    backdrop-filter: unset;
+  }
+}
+#layoutHelper-comments {
+  margin-bottom: 100px;
 }
 .shadow {
   box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
@@ -1796,8 +1804,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.7f6f906d.css" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.7f6f906d.css"></noscript>
+  <link rel="stylesheet" href="/css/style.9bf3dfbb.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.9bf3dfbb.css"></noscript>
     <script>
       let userColorScheme=localStorage.getItem("color-scheme")
       if(userColorScheme){
@@ -1875,9 +1883,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   volantis.GLOBAL_CONFIG ={
     debug: false,
-    cdn: {"js":{"app":"/js/app.cbfd0700.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.7f6f906d.css"}},
+    cdn: {"js":{"app":"/js/app.cbfd0700.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.d9437285.js","rightMenus":"/js/plugins/rightMenus.cd02aa19.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.0e52f222.js"},"css":{"style":"/css/style.9bf3dfbb.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1666626571732),
+    lastupdate: new Date(1666667153311),
     sidebar: {
       for_page: ["blogger","mything","feedback","webinfo"],
       for_post: ["toc"],
@@ -3418,7 +3426,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>最后活动时间：</div>
-          <div id="last-update-show">2022-10-24 日</div>
+          <div id="last-update-show">2022-10-25 日</div>
         </div>
       
     </div>
@@ -4272,53 +4280,51 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 
 
       <script>
-  volantis.layoutHelper("comments",`<div id="giscus_container"></div>`)
-
-  volantis.giscus = {};
-
-  function check_giscus() {
-    if (volantis.dark.mode === "dark") {
-      volantis.giscus.Theme = 'dark';
-    } else {
-      volantis.giscus.Theme = 'light';
+  volantis.layoutHelper("comments",`<div id="waline"><i class="fa-solid fa-cog fa-spin fa-fw fa-2x"></i></div>`)
+  
+  function pjax_waline() {
+    if(!document.querySelector("#waline"))return;
+    let locale = {};
+    let path = pdata.commentPath;
+    let pagePlaceholder = pdata.commentPlaceholder || "";
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    if(pagePlaceholder.length != 0) {
+      locale.placeholder = pagePlaceholder;
     }
 
-    return document.getElementById("giscus_container");
+    try {
+      Waline.init(Object.assign(Object.assign({"js":"https://unpkg.com/@waline/client@v2/dist/waline.js","css":"https://unpkg.com/@waline/client@v2/dist/waline.css","path":null,"placeholder":null,"serverURL":"https://waline.shudc.top","imageUploader":{"api":null,"token":null,"resp":null},"pageview":true,"comment":true}, {
+        el: '#waline',
+        path: path,
+        // https://github.com/volantis-x/hexo-theme-volantis/issues/713
+        
+        locale,
+      }),pdata.commentConfig));
+    } catch (error) {
+      alert(`Waline ${error}`)
+    }
+    fancybox_waline()
   }
 
-  function pjax_giscus() {
-    const HEAD = check_giscus();
-    if (!HEAD) return;
-    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"},"repo":"ShuDC/giscus","repo-id":"R_kgDOHddJ5Q","category":"Announcements","category-id":"DIC_kwDOHddJ5c4CPgnr","mapping":"number","reactions-enabled":"1","emit-metadata":"0","lang":"zh-CN","input-position":"top"},pdata.commentConfig)
-    const script = document.createElement('script');
-    script.setAttribute('src', 'https://giscus.app/client.js');
-    Object.keys(cfg).forEach(k=>{
-      if (k != "theme") {
-        script.setAttribute('data-'+k, cfg[k]);
-      }
-    })
-    script.setAttribute('data-theme', volantis.giscus.Theme);
-    script.setAttribute('crossorigin', "anonymous");
-    HEAD.appendChild(script);
+  function fancybox_waline() {
+    if(typeof VolantisFancyBox === "undefined") {
+      const checkFancyBox = setInterval(() => {
+        if(typeof VolantisFancyBox === "undefined") return;
+        clearInterval(checkFancyBox);
+        VolantisFancyBox.bind('#waline .wl-content img:not(.wl-emoji)');
+      })
+    } else {
+      VolantisFancyBox.bind('#waline .wl-content img:not(.wl-emoji)');
+    }
   }
 
-  function dark_giscus() {
-    const HEAD = check_giscus();
-    if (!HEAD) return;
-
-    const message = {
-      setConfig: {
-        theme: volantis.giscus.Theme
-      }
-    };
-    const giscusIframe = document.querySelector('iframe.giscus-frame');
-    giscusIframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-  }
-  pjax_giscus();
-  volantis.pjax.push(pjax_giscus);
-  volantis.dark.push(dark_giscus);
+  volantis.css('https://unpkg.com/@waline/client@v2/dist/waline.css')
+  volantis.js('https://unpkg.com/@waline/client@v2/dist/waline.js').then(pjax_waline)
+  volantis.pjax.push(pjax_waline);
 </script>
-
     
 
 
